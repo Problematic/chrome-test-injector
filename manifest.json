@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+
+    "name": "Test Injector",
+    "description": "Inject a test suite into the DOM and run it against your current page",
+    "version": "0.1",
+
+    "permissions": [
+        "http://localhost:8080/*"
+    ],
+
+    "browser_action": {
+        "default_icon": "img/auto-repair-50px.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://localhost:8080/*"],
+            "js": ["js/contentscript.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        "css/qunit.css",
+        "js/lib/qunit.js",
+
+        "js/tests/test.js"
+    ]
+}
